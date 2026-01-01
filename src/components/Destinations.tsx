@@ -17,7 +17,7 @@ const destinations = [
         subtitle: "The Jewel of the North",
         description: "Famous for its houseboats, lakes, and Mughal gardens.",
         image: destSrinagarClean,
-        gridClass: "lg:col-span-8 lg:row-span-2",
+        gridClass: "md:col-span-2 lg:col-span-8 lg:row-span-2",
         large: true
     },
     {
@@ -25,7 +25,7 @@ const destinations = [
         name: "Mystic Ladakh",
         subtitle: "Land of High Passes",
         image: destLadakh,
-        gridClass: "lg:col-span-4 lg:row-span-1",
+        gridClass: "md:col-span-1 lg:col-span-4 lg:row-span-1",
         large: false
     },
     {
@@ -33,7 +33,7 @@ const destinations = [
         name: "Unexplored Gurez",
         subtitle: "The Hidden Gem",
         image: destGurez,
-        gridClass: "lg:col-span-4 lg:row-span-1",
+        gridClass: "md:col-span-1 lg:col-span-4 lg:row-span-1",
         large: false
     },
     {
@@ -41,7 +41,7 @@ const destinations = [
         name: "Sonamarg",
         subtitle: "Meadow of Gold",
         image: destSonamarg,
-        gridClass: "lg:col-span-4 lg:row-span-1",
+        gridClass: "md:col-span-1 lg:col-span-4 lg:row-span-1",
         large: false
     },
     {
@@ -49,7 +49,7 @@ const destinations = [
         name: "Pahalgam",
         subtitle: "Valley of Shepherds",
         image: destPahalgam,
-        gridClass: "lg:col-span-4 lg:row-span-1",
+        gridClass: "md:col-span-1 lg:col-span-4 lg:row-span-1",
         large: false
     },
     {
@@ -57,7 +57,7 @@ const destinations = [
         name: "Gulmarg",
         subtitle: "Meadow of Flowers",
         image: destGulmarg,
-        gridClass: "lg:col-span-4 lg:row-span-1",
+        gridClass: "md:col-span-1 lg:col-span-4 lg:row-span-1",
         large: false
     },
     {
@@ -65,7 +65,7 @@ const destinations = [
         name: "Yusmarg",
         subtitle: "Meadow of Jesus",
         image: destYusmarg,
-        gridClass: "lg:col-span-12 lg:row-span-1",
+        gridClass: "md:col-span-2 lg:col-span-12 lg:row-span-1",
         large: false
     }
 ];
@@ -87,6 +87,7 @@ const DestinationCard = ({ dest }: { dest: typeof destinations[0] }) => {
                 <img
                     src={dest.image}
                     alt={dest.name}
+                    loading="lazy"
                     className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
                 />
 

@@ -46,6 +46,7 @@ const HomePackages = () => {
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute top-4 left-4 px-3 py-1 bg-lime-400 text-emerald-950 text-xs font-bold rounded-full uppercase">

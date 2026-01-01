@@ -20,6 +20,7 @@ const PackageCard = ({ pkg }: { pkg: Package }) => {
                     transition={{ duration: 0.6 }}
                     src={pkg.image}
                     alt={pkg.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                 />
 
@@ -121,6 +122,7 @@ const Packages = ({ onOpenModal }: { onOpenModal: () => void }) => {
                     <img
                         src="https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=2670&auto=format&fit=crop"
                         alt="Kashmir Valley"
+                        loading="lazy"
                         className="w-full h-full object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/80 via-emerald-950/50 to-emerald-950"></div>

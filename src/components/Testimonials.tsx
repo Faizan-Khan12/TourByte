@@ -64,16 +64,21 @@ const Testimonials = () => {
                 </div>
 
                 <div className="max-w-4xl mx-auto relative">
-                    <div className="flex items-center justify-between absolute top-1/2 -translate-y-1/2 w-full -mx-12 hidden md:flex">
-                        <button onClick={prev} className="p-3 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors">
-                            <ChevronLeft />
-                        </button>
-                        <button onClick={next} className="p-3 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors">
-                            <ChevronRight />
-                        </button>
-                    </div>
+                    {/* Desktop Navigation Arrows */}
+                    <button
+                        onClick={prev}
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 p-3 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors items-center justify-center z-20"
+                    >
+                        <ChevronLeft />
+                    </button>
+                    <button
+                        onClick={next}
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 p-3 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors items-center justify-center z-20"
+                    >
+                        <ChevronRight />
+                    </button>
 
-                    <div className="overflow-hidden min-h-[400px] flex items-center justify-center">
+                    <div className="overflow-hidden min-h-[300px] sm:min-h-[350px] md:min-h-[400px] flex items-center justify-center px-4">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}
@@ -81,7 +86,7 @@ const Testimonials = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -100 }}
                                 transition={{ duration: 0.5 }}
-                                className="text-center p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10"
+                                className="text-center p-6 sm:p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 w-full"
                             >
                                 <div className="flex justify-center gap-1 mb-6">
                                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -89,15 +94,18 @@ const Testimonials = () => {
                                     ))}
                                 </div>
 
-                                <p className="text-xl md:text-2xl text-white/90 italic mb-8 leading-relaxed font-light">
+                                <p className="text-lg sm:text-xl md:text-2xl text-white/90 italic mb-6 sm:mb-8 leading-relaxed font-light">
                                     "{testimonials[currentIndex].text}"
                                 </p>
 
-                                <div className="flex items-center justify-center gap-4">
+                                <div className="flex items-center justify-center gap-3 sm:gap-4">
                                     <img
                                         src={testimonials[currentIndex].image}
                                         alt={testimonials[currentIndex].name}
-                                        className="w-16 h-16 rounded-full border-2 border-lime-400 object-cover"
+                                        loading="lazy"
+                                        width="64"
+                                        height="64"
+                                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-lime-400 object-cover"
                                     />
                                     <div className="text-left">
                                         <h4 className="font-bold text-lg text-white">{testimonials[currentIndex].name}</h4>
@@ -108,15 +116,33 @@ const Testimonials = () => {
                         </AnimatePresence>
                     </div>
 
-                    {/* Dots */}
-                    <div className="flex justify-center gap-2 mt-8">
-                        {testimonials.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrentIndex(idx)}
-                                className={`w-3 h-3 rounded-full transition-colors ${idx === currentIndex ? 'bg-lime-400' : 'bg-white/20'}`}
-                            />
-                        ))}
+                    {/* Dots + Mobile Nav */}
+                    <div className="flex justify-center items-center gap-4 mt-6 sm:mt-8">
+                        {/* Mobile Previous */}
+                        <button
+                            onClick={prev}
+                            className="md:hidden p-2 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+
+                        <div className="flex gap-2">
+                            {testimonials.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrentIndex(idx)}
+                                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors ${idx === currentIndex ? 'bg-lime-400' : 'bg-white/20'}`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Mobile Next */}
+                        <button
+                            onClick={next}
+                            className="md:hidden p-2 rounded-full border border-white/10 hover:bg-lime-400 hover:text-emerald-950 transition-colors"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
                     </div>
                 </div>
             </div>

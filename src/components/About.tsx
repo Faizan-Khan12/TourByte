@@ -70,6 +70,7 @@ const About = () => {
                         <img
                             src="https://images.unsplash.com/photo-1566837945700-30057527ade0?q=80&w=2070&auto=format&fit=crop"
                             alt="Kashmir Landscape"
+                            loading="lazy"
                             className="w-full h-full object-cover"
                         />
                     </motion.div>
